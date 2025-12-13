@@ -1,0 +1,759 @@
+{
+  "pasha": {
+    "PH-60": {
+      "baskets": [
+        "S-10 Basket",
+        "S-12 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-65S": {
+      "baskets": [
+        "S-10 Basket",
+        "S-12 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-70": {
+      "baskets": [
+        "S-10 Basket",
+        "S-12 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-75S": {
+      "baskets": [
+        "S-10 Basket",
+        "S-12 Basket",
+        "S-14 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-80": {
+      "baskets": [
+        "S-10 Basket",
+        "S-12 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-90": {
+      "baskets": [
+        "S-14 Basket",
+        "S-15 Basket",
+        "S-16 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-105": {
+      "baskets": [
+        "S-14 Basket",
+        "S-15 Basket",
+        "S-16 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-120": {
+      "baskets": [
+        "S-14 Basket",
+        "S-15 Basket",
+        "S-16 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-135": {
+      "baskets": [
+        "S-15 Basket",
+        "S-16 Basket",
+        "S-20N Basket",
+        "S-20W Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-150": {
+      "baskets": [
+        "S-16 Basket",
+        "S-20N Basket",
+        "S-20W Basket",
+        "S-22 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-165": {
+      "baskets": [
+        "S-16 Basket",
+        "S-20N Basket",
+        "S-20W Basket",
+        "S-22 Basket"
+      ],
+      "burners": [
+        "Double Burner"
+      ]
+    },
+    "PH-180": {
+      "baskets": [
+        "S-20N Basket",
+        "S-20W Basket",
+        "S-22 Basket",
+        "S-26N Basket",
+        "S-26W Basket"
+      ],
+      "burners": [
+        "Double Burner",
+        "Triple Burner"
+      ]
+    },
+    "PH-210": {
+      "baskets": [
+        "S-20N Basket",
+        "S-20W Basket",
+        "S-22 Basket",
+        "S-26N Basket",
+        "S-26W Basket",
+        "S-30N Basket",
+        "S-30W Basket"
+      ],
+      "burners": [
+        "Triple Burner"
+      ]
+    },
+    "PH-240": {
+      "baskets": [
+        "S-20N Basket",
+        "S-20W Basket",
+        "S-22 Basket",
+        "S-26N Basket",
+        "S-26W Basket",
+        "S-30N Basket",
+        "S-30W Basket"
+      ],
+      "burners": [
+        "Triple Burner"
+      ]
+    },
+    "PH-270": {
+      "baskets": [
+        "S-26N Basket",
+        "S-26W Basket",
+        "S-30N Basket",
+        "S-30W Basket",
+        "S-34 Basket"
+      ],
+      "burners": [
+        "Triple Burner"
+      ]
+    },
+    "PH-300": {
+      "baskets": [
+        "S-26N Basket",
+        "S-26W Basket",
+        "S-30N Basket",
+        "S-30W Basket",
+        "S-34 Basket"
+      ],
+      "burners": [
+        "Triple Burner",
+        "Quadruple Burner"
+      ]
+    },
+    "PH-335": {
+      "baskets": [
+        "S-30N Basket",
+        "S-30W Basket",
+        "S-34 Basket",
+        "S-38 Basket"
+      ],
+      "burners": [
+        "Triple Burner",
+        "Quadruple Burner"
+      ]
+    },
+    "PH-370": {
+      "baskets": [
+        "S-30N Basket",
+        "S-30W Basket",
+        "S-34 Basket",
+        "S-38 Basket",
+        "S-42 Basket"
+      ],
+      "burners": [
+        "Quadruple Burner"
+      ]
+    },
+    "PH-370L": {
+      "baskets": [
+        "S-30N Basket",
+        "S-30W Basket",
+        "S-34 Basket",
+        "S-38 Basket",
+        "S-42 Basket"
+      ],
+      "burners": [
+        "Quadruple Burner"
+      ]
+    },
+    "PH-425": {
+      "baskets": [
+        "S-38 Basket",
+        "S-42 Basket",
+        "S-48 Basket"
+      ],
+      "burners": [
+        "Quadruple Burner"
+      ]
+    },
+    "PH-460": {
+      "baskets": [
+        "S-38 Basket",
+        "S-42 Basket",
+        "S-48 Basket",
+        "S-54 Basket"
+      ],
+      "burners": [
+        "Quadruple Burner"
+      ]
+    },
+    "PH-500": {
+      "baskets": [
+        "S-38 Basket",
+        "S-42 Basket",
+        "S-48 Basket"
+      ],
+      "burners": [
+        "Quadruple Burner"
+      ]
+    },
+    "PH-500L": {
+      "baskets": [
+        "S-38 Basket",
+        "S-42 Basket",
+        "S-48 Basket"
+      ],
+      "burners": [
+        "Quadruple Burner"
+      ]
+    },
+    "PH-525": {
+      "baskets": [
+        "S-42 Basket",
+        "S-48 Basket",
+        "S-54 Basket",
+        "S-58 Basket"
+      ],
+      "burners": [
+        "Quadruple Burner"
+      ]
+    },
+    "PH-525L": {
+      "baskets": [
+        "S-42 Basket",
+        "S-48 Basket",
+        "S-54 Basket",
+        "S-58 Basket"
+      ],
+      "burners": [
+        "Quadruple Burner"
+      ]
+    },
+    "PH-600": {
+      "baskets": [
+        "S-10 Basket",
+        "S-12 Basket",
+        "S-14 Basket",
+        "S-15 Basket",
+        "S-16 Basket",
+        "S-18 Basket",
+        "S-20N Basket",
+        "S-20W Basket",
+        "S-22 Basket",
+        "S-26N Basket",
+        "S-30N Basket",
+        "S-26W Basket",
+        "S-30W Basket",
+        "S-34 Basket",
+        "S-38 Basket",
+        "S-42 Basket",
+        "S-48 Basket",
+        "S-54 Basket",
+        "S-58 Basket",
+        "S-60 Basket"
+      ],
+      "burners": [
+        "Double Burner",
+        "Triple Burner",
+        "Quadruple Burner"
+      ]
+    },
+    "PH-650": {
+      "baskets": [
+        "S-10 Basket",
+        "S-12 Basket",
+        "S-14 Basket",
+        "S-15 Basket",
+        "S-16 Basket",
+        "S-18 Basket",
+        "S-20N Basket",
+        "S-20W Basket",
+        "S-22 Basket",
+        "S-26N Basket",
+        "S-30N Basket",
+        "S-26W Basket",
+        "S-30W Basket",
+        "S-34 Basket",
+        "S-38 Basket",
+        "S-42 Basket",
+        "S-48 Basket",
+        "S-54 Basket",
+        "S-58 Basket",
+        "S-60 Basket"
+      ],
+      "burners": [
+        "Double Burner",
+        "Triple Burner",
+        "Quadruple Burner"
+      ]
+    }
+  },
+  "schroeder": {
+    "12/16": {
+      "baskets": [
+        "M/2",
+        "I/2"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "13/16": {
+      "baskets": [
+        "M/2",
+        "I/2",
+        "II/3",
+        "III/4"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "14/16": {
+      "baskets": [
+        "M/2",
+        "I/2",
+        "II/3",
+        "III/4"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "15/16": {
+      "baskets": [
+        "M/2",
+        "I/2",
+        "II/3",
+        "III/4"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "16/16": {
+      "baskets": [
+        "M/2",
+        "I/2",
+        "II/3",
+        "III/4"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "17/16": {
+      "baskets": [
+        "M/2",
+        "M/3",
+        "II/3",
+        "III/4",
+        "IV/5"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "18/16": {
+      "baskets": [
+        "M/2",
+        "M/3",
+        "II/3",
+        "III/4",
+        "IV/5"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "19/16": {
+      "baskets": [
+        "M/2",
+        "M/3",
+        "II/3",
+        "III/4",
+        "IV/5"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "20/16": {
+      "baskets": [
+        "M/2",
+        "M/3",
+        "II/3",
+        "III/4",
+        "IV/5"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "21/16": {
+      "baskets": [
+        "M/2",
+        "M/3",
+        "II/3",
+        "III/4",
+        "IV/5"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "22/24": {
+      "baskets": [
+        "M/3",
+        "II/3",
+        "III/4",
+        "IV/5"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "23/24": {
+      "baskets": [
+        "M/3",
+        "II/3",
+        "III/4",
+        "IV/5"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "24/24": {
+      "baskets": [
+        "M/3",
+        "III/4",
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "25/24": {
+      "baskets": [
+        "M/3",
+        "III/4",
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A"
+      ],
+      "burners": [
+        "Single burner",
+        "Double burner"
+      ]
+    },
+    "26/24": {
+      "baskets": [
+        "III/4",
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "27/24": {
+      "baskets": [
+        "III/4",
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "28/24": {
+      "baskets": [
+        "III/4",
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "29/24": {
+      "baskets": [
+        "III/4",
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "30/24": {
+      "baskets": [
+        "III/4",
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "31/24": {
+      "baskets": [
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "32/24": {
+      "baskets": [
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "33/24": {
+      "baskets": [
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "34/24": {
+      "baskets": [
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "35/24": {
+      "baskets": [
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "36/24": {
+      "baskets": [
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6"
+      ],
+      "burners": [
+        "Double burner"
+      ]
+    },
+    "40/24": {
+      "baskets": [
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6",
+        "VII/7",
+        "VIII/8"
+      ],
+      "burners": [
+        "Double burner",
+        "Triple burner"
+      ]
+    },
+    "42/24": {
+      "baskets": [
+        "IV/5",
+        "M/5",
+        "V/5",
+        "V-A",
+        "VI/6",
+        "VII/7",
+        "VIII/8"
+      ],
+      "burners": [
+        "Double burner",
+        "Triple burner"
+      ]
+    },
+    "45/24": {
+      "baskets": [
+        "VI/6",
+        "VII/7",
+        "VIII/8",
+        "VIII/9"
+      ],
+      "burners": [
+        "Double burner",
+        "Triple burner"
+      ]
+    },
+    "50/24": {
+      "baskets": [
+        "VII/7",
+        "VIII/8",
+        "VIII/9",
+        "IX/10"
+      ],
+      "burners": [
+        "FB7 Double Burner",
+        "Triple burner"
+      ]
+    },
+    "60/24": {
+      "baskets": [
+        "VII/7",
+        "VIII/8",
+        "VIII/9",
+        "IX/10",
+        "IX/11"
+      ],
+      "burners": [
+        "FB7 Double Burner",
+        "Triple burner",
+        "Quad burner"
+      ]
+    },
+    "70/24": {
+      "baskets": [
+        "VIII/9",
+        "IX/10",
+        "IX/11",
+        "X/13",
+        "X/15"
+      ],
+      "burners": [
+        "Triple burner",
+        "Quad burner"
+      ]
+    },
+    "85/24": {
+      "baskets": [
+        "IX/11",
+        "IX/13",
+        "X/15"
+      ],
+      "burners": [
+        "Triple burner",
+        "Quad burner"
+      ]
+    },
+    "105/28": {
+      "baskets": [
+        "XII/19",
+        "XII/23",
+        "XIII/27"
+      ],
+      "burners": [
+        "Quad burner"
+      ]
+    },
+    "125/28": {
+      "baskets": [
+        "XIII/19",
+        "XIII/23",
+        "XIII/27"
+      ],
+      "burners": [
+        "Quad burner"
+      ]
+    }
+  }
+}
