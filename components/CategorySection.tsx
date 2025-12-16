@@ -91,8 +91,8 @@ export function CategorySection({ category, selectedItems, selectedEnvelope, sel
     };
 
     return (
-        <section className="mb-6 border border-slate-200 rounded-lg bg-white shadow-sm overflow-hidden">
-            <div className="p-4 border-b border-slate-100 bg-slate-50 flex justify-between items-center">
+        <section className="mb-6 border border-slate-200 rounded-lg bg-white shadow-sm">
+            <div className="p-4 border-b border-slate-100 bg-slate-50 flex justify-between items-center rounded-t-lg">
                 <h3 className="text-lg font-bold text-slate-700 uppercase tracking-wider">{category.name}</h3>
                 <span className="text-xs font-medium text-slate-500 bg-white px-2 py-1 rounded border border-slate-200">
                     {filteredItems.length} options
