@@ -13,12 +13,13 @@ interface Kit {
 }
 
 interface KitLoaderProps {
+    isOpen: boolean;
     vendorId: string;
     onLoadKit: (envelope: string, basket: string, burner: string) => void;
     onClose: () => void;
 }
 
-export function KitLoader({ vendorId, onLoadKit, onClose }: KitLoaderProps) {
+export function KitLoader({ isOpen, vendorId, onLoadKit, onClose }: KitLoaderProps) {
     const kits = (predefinedKits as any)[vendorId] as Kit[] || [];
 
     const handleLoadKit = (kit: Kit) => {

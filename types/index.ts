@@ -26,6 +26,7 @@ export interface SelectedItem {
     item: CatalogItem;
     quantity: number;
     customPrice?: number; // Overrides catalog price (e.g. for Artwork)
+    customDescription?: string; // Overrides catalog description (e.g. for Artwork)
 }
 
 export interface BudgetSelection {

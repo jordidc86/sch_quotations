@@ -128,33 +128,45 @@ export function BudgetBuilder({ catalog, vendorInfo, loadedQuotation, onQuotatio
         }
     }, [selectedItems, clientDetails, discount, quotationNumber, totalAmount, vendorInfo]);
 
-    const handleSelect = (item: CatalogItem, qty: number, customPrice?: number) => {
-        const behavior = getCategoryBehavior(item.category);
 
-        setSelectedItems(prev => {
-            const next = new Map(prev);
-
-            // Enforce single selection for specific categories
-            if (behavior === "single") {
-                // Remove other items from same category
-                for (const [key, val] of Array.from(next.entries())) {
-                    if (val.item.category === item.category) {
-                        next.delete(key);
-                    }
-                }
+    // Derive selected Envelope and Burner for compatibility
+    const selectedEnvelope = useMemo(() => {
+        // Find item in ENVELOPE category
+        for (const [id, selected] of selectedItems.entries()) {
+            if (selected.item.category === "ENVELOPE" || selected.item.name.includes("Envelope")) { // Fallback name check if category not explicitly set in item
+                // Actually we inject category on select, so check selected.item.category is safer if we persist it
+                // But in handleSelect we inject it into the object we store? 
+                // We store SelectedItem which has item: CatalogItem.
+                // We inject category into item object in handleSelect? Yes: { ...item, category: category.name }
+                return selected.item.name;
             }
+        }
+        return null;
+    }, [selectedItems]);
 
-            next.set(item.id, { item, quantity: qty, customPrice });
-            return next;
-        });
+    const selectedBurner = useMemo(() => {
+        for (const [id, selected] of selectedItems.entries()) {
+            // Check for BURNER category, but NOT "BURNER FRAME"
+            if (selected.item.category === "BURNER") {
+                return selected.item.name;
+            }
+        }
+        return null;
+    }, [selectedItems]);
+
+    const handleSelect = (item: CatalogItem, qty: number, customPrice?: number, customDescription?: string) => {
+        const newItems = new Map(selectedItems);
+        // If qty is 0, arguably we should remove it, but maybe user wants 0? 
+        // Logic in CategorySection calls onRemove if unchecked.
+        // Here we just update.
+        newItems.set(item.id, { item, quantity: qty, customPrice, customDescription });
+        setSelectedItems(newItems);
     };
 
     const handleRemove = (itemId: string) => {
-        setSelectedItems(prev => {
-            const next = new Map(prev);
-            next.delete(itemId);
-            return next;
-        });
+        const newItems = new Map(selectedItems);
+        newItems.delete(itemId);
+        setSelectedItems(newItems);
     };
 
     const handleAddCustomItem = (name: string, description: string, price: number) => {
@@ -191,69 +203,112 @@ export function BudgetBuilder({ catalog, vendorInfo, loadedQuotation, onQuotatio
         if (burnerItem) setTimeout(() => handleSelect({ ...burnerItem, category: "BURNER" }, 1), 200);
     };
 
-    // Get selected envelope for compatibility filtering
-    const selectedEnvelope = useMemo(() => {
-        const envelopeCategory = catalog.categories.find(cat => cat.name.toUpperCase() === "ENVELOPE");
-        if (!envelopeCategory) return null;
-
-        for (const [itemId, selected] of selectedItems) {
-            const item = envelopeCategory.items.find(i => i.id === itemId);
-            if (item) return item.name;
-        }
-        return null;
-    }, [selectedItems, catalog]);
+    const handleSaveQuotation = () => {
+        // This function is called by LivePreview to trigger a save.
+        // The useEffect already handles auto-saving, but this can be used
+        // for explicit save actions if needed, or to ensure the latest state is saved.
+        // For now, it just relies on the useEffect.
+        console.log("Explicit save triggered (auto-save handles it)");
+    };
 
     return (
-        <div className="flex flex-col lg:flex-row gap-8">
-            {/* Left: Scrollable Catalog */}
-            <div className="flex-1">
-                <div className="mb-4 flex justify-end">
-                    <button
-                        onClick={() => setShowKitLoader(true)}
-                        className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors flex items-center gap-2"
-                    >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                        </svg>
-                        Load Predefined Kit
-                    </button>
+        <div className="max-w-6xl mx-auto px-4 py-8 animate-in fade-in duration-500">
+            {/* Header / Client Details Section */}
+            <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8">
+                <div className="flex justify-between items-start mb-6">
+                    <div>
+                        <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
+                            {vendorInfo.name} <span className="text-blue-600">Configurator</span>
+                        </h1>
+                        <p className="text-slate-500 mt-1">Create a professional quotation in minutes.</p>
+                    </div>
+                    <div className="text-right">
+                        <div className="text-sm font-mono text-slate-400 mb-1">Quotation #</div>
+                        <div className="text-xl font-bold text-slate-700">{quotationNumber}</div>
+                    </div>
                 </div>
-                {catalog.categories.map((cat) => (
-                    <CategorySection
-                        key={cat.name}
-                        category={cat}
-                        selectedItems={selectedItems}
-                        selectedEnvelope={selectedEnvelope}
-                        vendorId={vendorInfo.id}
-                        onSelect={handleSelect}
-                        onRemove={handleRemove}
-                    />
-                ))}
-            </div>
 
-            {/* Right: Sticky Preview */}
-            <div className="w-full lg:w-[400px] xl:w-[450px]">
-                <div className="sticky top-8">
-                    <LivePreview
-                        items={selectedList}
-                        total={totalAmount}
-                        discount={discount}
-                        onDiscountChange={setDiscount}
-                        clientDetails={clientDetails}
-                        onClientDetailsChange={setClientDetails}
-                        quotationNumber={quotationNumber}
-                        onAddCustomItem={handleAddCustomItem}
-                        onRemoveItem={handleRemove}
-                        vendorInfo={vendorInfo}
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label className="block text-sm font-semibold text-slate-600 mb-1">Client Name</label>
+                        <input
+                            type="text"
+                            className="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                            placeholder="e.g. Balloon Adventures Ltd."
+                            value={clientDetails.name}
+                            onChange={e => setClientDetails({ ...clientDetails, name: e.target.value })}
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-semibold text-slate-600 mb-1">Country / Region</label>
+                        <input
+                            type="text"
+                            className="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-all"
+                            placeholder="e.g. Switzerland"
+                            value={clientDetails.country}
+                            onChange={e => setClientDetails({ ...clientDetails, country: e.target.value })}
+                        />
+                    </div>
                 </div>
             </div>
 
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Catalog Section */}
+                <div className="lg:col-span-2 space-y-2">
+                    {/* Kit Loader Banner */}
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-lg p-4 mb-6 flex justify-between items-center">
+                        <div>
+                            <h3 className="font-bold text-blue-900">Predefined Kits Available</h3>
+                            <p className="text-sm text-blue-700">Quickly load standard configurations.</p>
+                        </div>
+                        <button
+                            onClick={() => setShowKitLoader(true)}
+                            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm"
+                        >
+                            Browse Kits
+                        </button>
+                    </div>
+
+                    {catalog.categories.map(category => (
+                        <CategorySection
+                            key={category.name}
+                            category={category}
+                            selectedItems={selectedItems}
+                            selectedEnvelope={selectedEnvelope}
+                            selectedBurner={selectedBurner}
+                            vendorId={vendorInfo.id}
+                            onSelect={handleSelect}
+                            onRemove={handleRemove}
+                        />
+                    ))}
+                </div>
+
+                {/* Live Preview Section */}
+                <div className="lg:col-span-1">
+                    <div className="sticky top-6">
+                        <LivePreview
+                            selectedItems={selectedList}
+                            total={totalAmount}
+                            discount={discount}
+                            onDiscountChange={setDiscount}
+                            clientDetails={clientDetails}
+                            onClientDetailsChange={setClientDetails}
+                            quotationNumber={quotationNumber}
+                            onAddCustomItem={handleAddCustomItem}
+                            onRemoveItem={handleRemove}
+                            vendorInfo={vendorInfo}
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/* Kit Loader Modal */}
             {showKitLoader && (
                 <KitLoader
-                    vendorId={vendorInfo.id}
-                    onLoadKit={handleLoadKit}
+                    isOpen={showKitLoader}
                     onClose={() => setShowKitLoader(false)}
+                    onLoadKit={handleLoadKit}
+                    vendorId={vendorInfo.id}
                 />
             )}
         </div>

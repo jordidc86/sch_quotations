@@ -194,27 +194,27 @@
         },
         {
           "id": "item_33",
-          "name": "%100 Hyperlast Panel Supplement",
-          "description": "-100% Hyperlast panel Envelope",
-          "price": 25.0
+          "name": "Hyperlast configuration",
+          "description": "-Complimentary as 40th Anniversary",
+          "price": 0.0
         },
         {
           "id": "item_34",
-          "name": "Additional Nomex Panel Supplement",
+          "name": "Additional row of Nomex",
           "description": "-100% Fire Retardant Nomex",
-          "price": 25.0
+          "price": 600.0
         },
         {
           "id": "item_35",
-          "name": "Silver Fabric Supplement",
-          "description": "-Top Three Panel Hyperlast Fabric",
-          "price": 7.0
+          "name": "Additional row of Silver Fabric",
+          "description": "-Row of silver fabric",
+          "price": 168.0
         },
         {
           "id": "item_36",
-          "name": "Gold Fabric Supplement",
-          "description": "-Top Three Panel Hyperlast Fabric",
-          "price": 4.0
+          "name": "Additional row of Gold Fabric",
+          "description": "-Row of gold fabric",
+          "price": 96.0
         },
         {
           "id": "item_37",

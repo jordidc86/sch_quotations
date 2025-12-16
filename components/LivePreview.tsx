@@ -14,7 +14,7 @@ interface VendorInfo {
 }
 
 interface LivePreviewProps {
-    items: SelectedItem[];
+    selectedItems: SelectedItem[];
     total: number;
     discount: number;
     onDiscountChange: (val: number) => void;
@@ -27,7 +27,7 @@ interface LivePreviewProps {
 }
 
 export function LivePreview({
-    items,
+    selectedItems,
     total,
     discount,
     onDiscountChange,
@@ -95,11 +95,11 @@ export function LivePreview({
                 />
             </div>
 
-            {items.length === 0 ? (
+            {selectedItems.length === 0 ? (
                 <p className="text-slate-400 italic">No items selected yet.</p>
             ) : (
                 <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
-                    {items.map(({ item, quantity, customPrice }) => {
+                    {selectedItems.map(({ item, quantity, customPrice }) => {
                         const price = customPrice !== undefined ? customPrice : item.price;
                         return (
                             <div key={item.id} className="group flex justify-between items-start text-sm border-b border-slate-800 pb-2 hover:bg-slate-800/30 px-2 py-1 rounded transition-colors">
@@ -188,8 +188,8 @@ export function LivePreview({
             </div>
 
             <button
-                onClick={() => generatePDF(items, total, discount, clientDetails, quotationNumber, vendorInfo)}
-                disabled={items.length === 0}
+                onClick={() => generatePDF(selectedItems, total, discount, clientDetails, quotationNumber, vendorInfo)}
+                disabled={selectedItems.length === 0}
                 className="w-full mt-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-700 disabled:cursor-not-allowed rounded-lg font-bold transition-all shadow-lg hover:shadow-blue-900/50"
             >
                 Download PDF Quotation
