@@ -634,6 +634,18 @@
           "name": "Radio (Funk)",
           "description": "-8.33 kHz Handheld Radio",
           "price": 450.0
+        },
+        {
+          "id": "item_new_8",
+          "name": "Launching rope quickrelease 5m incl karabiner",
+          "description": "-5m launching rope including karabiner",
+          "price": 105.0
+        },
+        {
+          "id": "item_new_9",
+          "name": "Launching rope quickrelease 5m with damper and karabiner",
+          "description": "-5m launching rope with damper and karabiner",
+          "price": 180.0
         }
       ]
     },
