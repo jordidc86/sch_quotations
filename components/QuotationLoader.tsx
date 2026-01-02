@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { SavedQuotation, getAllQuotations, deleteQuotation } from "@/lib/storage";
+import { useState, useEffect } from "react";
+import { SavedQuotation, getAllQuotationsServer, deleteQuotation } from "@/lib/storage";
 
 interface QuotationLoaderProps {
     onLoad: (quotation: SavedQuotation) => void;
@@ -9,12 +9,24 @@ interface QuotationLoaderProps {
 }
 
 export function QuotationLoader({ onLoad, onClose }: QuotationLoaderProps) {
-    const [quotations, setQuotations] = useState<SavedQuotation[]>(getAllQuotations());
+    const [quotations, setQuotations] = useState<SavedQuotation[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    const handleDelete = (id: string) => {
+    const loadQuotations = async () => {
+        setLoading(true);
+        const data = await getAllQuotationsServer();
+        setQuotations(data);
+        setLoading(false);
+    };
+
+    useEffect(() => {
+        loadQuotations();
+    }, []);
+
+    const handleDelete = async (id: string) => {
         if (confirm("Are you sure you want to delete this quotation?")) {
-            deleteQuotation(id);
-            setQuotations(getAllQuotations());
+            await deleteQuotation(id);
+            loadQuotations(); // Refresh list
         }
     };
 
@@ -34,7 +46,12 @@ export function QuotationLoader({ onLoad, onClose }: QuotationLoaderProps) {
                 </div>
 
                 <div className="p-6 overflow-y-auto max-h-[calc(80vh-100px)]">
-                    {quotations.length === 0 ? (
+                    {loading ? (
+                        <div className="text-center py-12">
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+                            <p className="text-slate-400">Loading your budgets...</p>
+                        </div>
+                    ) : quotations.length === 0 ? (
                         <div className="text-center py-12 text-slate-400">
                             <p className="text-lg mb-2">No saved quotations found</p>
                             <p className="text-sm">Create a quotation and it will be automatically saved</p>

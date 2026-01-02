@@ -115,30 +115,26 @@ export function BudgetBuilder({ catalog, vendorInfo, loadedQuotation, onQuotatio
 
     // Auto-save quotation whenever state changes
     useEffect(() => {
-        if (selectedItems.size > 0 && quotationNumber) {
-            const quotation: SavedQuotation = {
-                id: quotationNumber,
-                vendorId: vendorInfo.id,
-                vendorName: vendorInfo.name,
-                date: new Date().toISOString(),
-                clientName: clientDetails.name,
-                clientDetails,
-                items: Array.from(selectedItems.values()).map(({ item, quantity, customPrice, customDescription }) => ({
-                    itemId: item.id,
-                    itemName: item.name,
-                    category: item.category || "UNKNOWN",
-                    quantity,
-                    price: item.price,
-                    customPrice,
-                    customDescription
-                })),
-                discount,
-                total: totalAmount,
-                quotationNumber,
-                paymentTerms // Save the current terms
-            };
-            saveQuotation(quotation);
-        }
+        const timeoutId = setTimeout(async () => {
+            if (selectedItems.size > 0 && quotationNumber) {
+                const quotation: SavedQuotation = {
+                    id: quotationNumber,
+                    vendorId: vendorInfo.id,
+                    vendorName: vendorInfo.name,
+                    date: new Date().toISOString(),
+                    clientName: clientDetails.name,
+                    clientDetails,
+                    items: Array.from(selectedItems.values()),
+                    discount,
+                    total: totalAmount,
+                    quotationNumber,
+                    paymentTerms
+                };
+                await saveQuotation(quotation);
+            }
+        }, 1000); // 1s debounce
+
+        return () => clearTimeout(timeoutId);
     }, [selectedItems, clientDetails, discount, quotationNumber, totalAmount, vendorInfo, paymentTerms]);
 
 
