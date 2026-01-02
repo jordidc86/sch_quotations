@@ -1068,6 +1068,18 @@
           "price": 670.0
         },
         {
+          "id": "pasha_launching_rope_quickrelease_5m_incl_karabiner",
+          "name": "Launching rope quickrelease 5m incl karabiner",
+          "description": "-5m launching rope including karabiner",
+          "price": 105.0
+        },
+        {
+          "id": "pasha_launching_rope_quickrelease_5m_with_damper_and_karabiner",
+          "name": "Launching rope quickrelease 5m with damper and karabiner",
+          "description": "-5m launching rope with damper and karabiner",
+          "price": 180.0
+        },
+        {
           "id": "pasha_tether_kıt",
           "name": "Tether Kıt",
           "description": "-3 x 50m tether line with carabiners",
