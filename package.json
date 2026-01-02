@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
-    "start": "next start",
+    "build": "rm -rf .next && prisma generate && next build && mkdir -p .next/standalone/.next && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/",
+    "start": "NODE_ENV=production node server.js",
     "lint": "eslint",
     "postinstall": "prisma generate"
   },
@@ -13,10 +13,10 @@
     "@prisma/client": "^6.19.1",
     "jspdf": "^3.0.4",
     "jspdf-autotable": "^5.0.2",
-    "next": "16.0.8",
+    "next": "15.1.0",
     "prisma": "^6.19.1",
-    "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -24,7 +24,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.0.8",
+    "eslint-config-next": "15.1.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
