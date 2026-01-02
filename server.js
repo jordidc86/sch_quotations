@@ -1,11 +1,19 @@
-// server.js (Root entry point for Hostinger)
-const path = require('path');
+const { createServer } = require('http');
+const { parse } = require('url');
+const next = require('next');
 
-// Set environment to production
-process.env.NODE_ENV = 'production';
-process.env.PORT = process.env.PORT || 3000;
-process.env.HOSTNAME = '0.0.0.0';
+const dev = false;
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
-// Import and start the standalone server
-// Using relative path to the standalone server
-require('./.next/standalone/server.js');
+const port = process.env.PORT || 3000;
+
+app.prepare().then(() => {
+    createServer((req, res) => {
+        const parsedUrl = parse(req.url, true);
+        handle(req, res, parsedUrl);
+    }).listen(port, (err) => {
+        if (err) throw err;
+        console.log(`> Ready on http://localhost:${port}`);
+    });
+});
