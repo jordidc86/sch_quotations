@@ -68,19 +68,10 @@ export function BudgetBuilder({ catalog, vendorInfo, loadedQuotation, onQuotatio
             // Restore selected items
             const itemsMap = new Map<string, SelectedItem>();
             loadedQuotation.items.forEach(savedItem => {
-                // Find the actual item in catalog
-                const catalogItem = catalog.categories
-                    .flatMap(cat => cat.items)
-                    .find(item => item.id === savedItem.itemId);
-
-                if (catalogItem) {
-                    itemsMap.set(savedItem.itemId, {
-                        item: catalogItem,
-                        quantity: savedItem.quantity,
-                        customPrice: savedItem.customPrice,
-                        customDescription: savedItem.customDescription
-                    });
-                }
+                // Find the actual item in catalog to ensure we have latest descriptions/prices if available
+                // or just use what was saved. 
+                // The new structure saves the whole SelectedItem object.
+                itemsMap.set(savedItem.item.id, savedItem);
             });
             setSelectedItems(itemsMap);
 

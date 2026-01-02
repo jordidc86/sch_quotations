@@ -1,5 +1,5 @@
 // Quotation storage utilities using both LocalStorage and MySQL via API
-import { SelectedItem } from "./types";
+import { SelectedItem } from "@/types";
 
 export interface SavedQuotation {
     id: string;
